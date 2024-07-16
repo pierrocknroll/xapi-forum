@@ -1,8 +1,8 @@
-# Viewed a topic
+# Updated a topic
 
 ## Description
 
-The user has viewed a topic within a forum, community site.
+The user has updated a topic within a community site or a forum.
 
 ## Example
 
@@ -16,7 +16,7 @@ The user has viewed a topic within a forum, community site.
       }
    },
    "verb": {
-      "id": "http://id.tincanapi.com/verb/viewed"
+      "id": "https://w3id.org/xapi/dod-isd/verbs/updated"
    },
    "object": {
       "objectType": "Activity",
@@ -25,10 +25,6 @@ The user has viewed a topic within a forum, community site.
          "type": "http://id.tincanapi.com/activitytype/discussion",
          "name": {
             "en": "Test Topic"
-         },
-         "extensions": {
-            "https://w3id.org/xapi/acrossx/extensions/total-items": 3,
-            "https://w3id.org/xapi/acrossx/extensions/total-pages": 1
          }
       }
    },
@@ -50,10 +46,14 @@ The user has viewed a topic within a forum, community site.
                 }
             }
          ]
-      },
-      "extensions": {
-        "http://www.risc-inc.com/annotator/extensions/page": 1
       }
    }
 }
 ```
+
+## Determining properties
+
+| Property | Value |
+|---|---|
+| `$.verb.id` | MUST be `https://w3id.org/xapi/dod-isd/verbs/updated` |
+| `$.object.definition.type` | MUST be `http://id.tincanapi.com/activitytype/discussion` |

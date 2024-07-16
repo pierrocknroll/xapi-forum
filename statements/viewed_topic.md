@@ -1,8 +1,8 @@
-# Created a topic
+# Viewed a topic
 
 ## Description
 
-The user has created a topic within a community site or a forum.
+The user has viewed a topic within a forum, community site.
 
 ## Example
 
@@ -16,7 +16,7 @@ The user has created a topic within a community site or a forum.
       }
    },
    "verb": {
-      "id": "https://w3id.org/xapi/dod-isd/verbs/created"
+      "id": "http://id.tincanapi.com/verb/viewed"
    },
    "object": {
       "objectType": "Activity",
@@ -25,6 +25,10 @@ The user has created a topic within a community site or a forum.
          "type": "http://id.tincanapi.com/activitytype/discussion",
          "name": {
             "en": "Test Topic"
+         },
+         "extensions": {
+            "https://w3id.org/xapi/acrossx/extensions/total-items": 3,
+            "https://w3id.org/xapi/acrossx/extensions/total-pages": 1
          }
       }
    },
@@ -46,7 +50,22 @@ The user has created a topic within a community site or a forum.
                 }
             }
          ]
+      },
+      "extensions": {
+        "http://www.risc-inc.com/annotator/extensions/page": 1
       }
    }
 }
 ```
+
+## Determining properties
+
+| Property | Value |
+|---|---|
+| `$.verb.id` | MUST be `http://id.tincanapi.com/verb/viewed` |
+| `$.object.definition.type` | MUST be `http://id.tincanapi.com/activitytype/discussion` |
+
+## Rules
+- `$.object.definition.extensions['https://w3id.org/xapi/acrossx/extensions/total-items']`: RECOMMENDED, positive integer, MUST contain the number of items. 
+- `$.object.definition.extensions['https://w3id.org/xapi/acrossx/extensions/total-pages']`: RECOMMENDED, positive integer, MUST contain the number of pages.
+- `$.context.extensions['http://www.risc-inc.com/annotator/extensions/page']`: RECOMMENDED, positive integer, MUST contain the topic page number.

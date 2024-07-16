@@ -42,3 +42,10 @@ The user has viewed a forum.
    }
 }
 ```
+
+## Determining properties
+
+| Property | Value |
+|---|---|
+| `$.verb.id` | MUST be `http://id.tincanapi.com/verb/viewed` |
+| `$.object.definition.type` | MUST be `http://id.tincanapi.com/activitytype/community-site` |

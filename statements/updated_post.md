@@ -1,8 +1,8 @@
-# Created a post
+# Updated a post
 
 ## Description
 
-The user has created a post within a topic.
+The user has updated a post within a topic.
 
 ## Example
 
@@ -16,7 +16,7 @@ The user has created a post within a topic.
       }
    },
    "verb": {
-      "id": "https://w3id.org/xapi/dod-isd/verbs/created"
+      "id": "https://w3id.org/xapi/dod-isd/verbs/updated"
    },
    "object": {
       "objectType": "Activity",
@@ -50,3 +50,10 @@ The user has created a post within a topic.
    }
 }
 ```
+
+## Determining properties
+
+| Property | Value |
+|---|---|
+| `$.verb.id` | MUST be `https://w3id.org/xapi/dod-isd/verbs/updated` |
+| `$.object.definition.type` | MUST be `https://w3id.org/xapi/acrossx/activities/message` |

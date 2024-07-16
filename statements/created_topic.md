@@ -1,8 +1,8 @@
-# Updated a topic
+# Created a topic
 
 ## Description
 
-The user has updated a topic within a community site or a forum.
+The user has created a topic within a community site or a forum.
 
 ## Example
 
@@ -16,7 +16,7 @@ The user has updated a topic within a community site or a forum.
       }
    },
    "verb": {
-      "id": "https://w3id.org/xapi/dod-isd/verbs/updated"
+      "id": "https://w3id.org/xapi/dod-isd/verbs/created"
    },
    "object": {
       "objectType": "Activity",
@@ -50,3 +50,10 @@ The user has updated a topic within a community site or a forum.
    }
 }
 ```
+
+## Determining properties
+
+| Property | Value |
+|---|---|
+| `$.verb.id` | MUST be `https://w3id.org/xapi/dod-isd/verbs/created` |
+| `$.object.definition.type` | MUST be `http://id.tincanapi.com/activitytype/discussion` |
