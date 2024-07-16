@@ -1,0 +1,145 @@
+{
+    "id": "http://schema.dases.eu/xapi/profile/forum",
+    "@context": "https://w3id.org/xapi/profiles/context",
+    "type": "Profile",
+    "conformsTo": "https://w3id.org/xapi/profiles#1.0",
+    "prefLabel": {
+        "en": "DASES Forum Profile"
+    },
+    "definition": {
+        "en": "Profile of activities occurring in a forum."
+    },
+    "concepts": [
+        {
+            "id": "https://w3id.org/xapi/acrossx/extensions/total-items",
+            "type": "ObjectExtension",
+            "prefLabel": {
+                "en": "total items"
+            },
+            "definition": {
+                "en": "The total number of items in a discussion."
+            },
+            "inlineSchema": "{\"type\": \"integer\", \"minimum\": 1}"
+        },
+        {
+            "id": "https://w3id.org/xapi/acrossx/extensions/total-pages",
+            "type": "ObjectExtension",
+            "prefLabel": {
+                "en": "total pages"
+            },
+            "definition": {
+                "en": "The total number of pages in a discussion."
+            },
+            "inlineSchema": "{\"type\": \"integer\", \"minimum\": 1}"
+        },
+        {
+            "id": "http://www.risc-inc.com/annotator/extensions/page",
+            "type": "ContextExtension",
+            "prefLabel": {
+                "en": "page"
+            },
+            "definition": {
+                "en": "The page number within a topic."
+            },
+            "inlineSchema": "{\"type\": \"integer\", \"minimum\": 1}"
+        }
+    ],
+    "templates": [
+        {
+            "id": "http://schema.dases.eu/xapi/profile/forum/templates/created-post",
+            "type": "StatementTemplate",
+            "prefLabel": {
+                "en": "Created a post"
+            },
+            "definition": {
+                "en": "The user has created a post within a topic."
+            },
+            "verb": "https://w3id.org/xapi/dod-isd/verbs/created",
+            "objectActivityType": "https://w3id.org/xapi/acrossx/activities/message",
+            "rules": [
+            ]
+        },
+        {
+            "id": "http://schema.dases.eu/xapi/profile/forum/templates/created-topic",
+            "type": "StatementTemplate",
+            "prefLabel": {
+                "en": "Created a topic"
+            },
+            "definition": {
+                "en": "The user has created a topic within a community site or a forum."
+            },
+            "verb": "https://w3id.org/xapi/dod-isd/verbs/created",
+            "objectActivityType": "http://id.tincanapi.com/activitytype/discussion",
+            "rules": [
+            ]
+        },
+        {
+            "id": "http://schema.dases.eu/xapi/profile/forum/templates/updated-post",
+            "type": "StatementTemplate",
+            "prefLabel": {
+                "en": "Updated a post"
+            },
+            "definition": {
+                "en": "The user has updated a post within a topic."
+            },
+            "verb": "https://w3id.org/xapi/dod-isd/verbs/updated",
+            "objectActivityType": "https://w3id.org/xapi/acrossx/activities/message",
+            "rules": [
+            ]
+        },
+        {
+            "id": "http://schema.dases.eu/xapi/profile/forum/templates/updated-topic",
+            "type": "StatementTemplate",
+            "prefLabel": {
+                "en": "Updated a topic"
+            },
+            "definition": {
+                "en": "The user has updated a topic within a community site or a forum."
+            },
+            "verb": "https://w3id.org/xapi/dod-isd/verbs/updated",
+            "objectActivityType": "http://id.tincanapi.com/activitytype/discussion",
+            "rules": [
+            ]
+        },
+        {
+            "id": "http://schema.dases.eu/xapi/profile/forum/templates/viewed-forum",
+            "type": "StatementTemplate",
+            "prefLabel": {
+                "en": "Viewed a forum"
+            },
+            "definition": {
+                "en": "The user has viewed a forum."
+            },
+            "verb": "http://id.tincanapi.com/verb/viewed",
+            "objectActivityType": "http://id.tincanapi.com/activitytype/community-site",
+            "rules": [
+            ]
+        },
+        {
+            "id": "http://schema.dases.eu/xapi/profile/forum/templates/viewed-topic",
+            "type": "StatementTemplate",
+            "prefLabel": {
+                "en": "Viewed a topic"
+            },
+            "definition": {
+                "en": "The user has viewed a topic within a forum, community site."
+            },
+            "verb": "http://id.tincanapi.com/verb/viewed",
+            "objectActivityType": "http://id.tincanapi.com/activitytype/discussion",
+            "rules": [
+                {
+                    "location": "$.object.definition.extensions['https://w3id.org/xapi/acrossx/extensions/total-items']",
+                    "presence": "recommended"
+                },
+                {
+                    "location": "$.object.definition.extensions['https://w3id.org/xapi/acrossx/extensions/total-pages']",
+                    "presence": "recommended"
+                },
+                {
+                    "location": "$.context.extensions['http://www.risc-inc.com/annotator/extensions/page']",
+                    "presence": "recommended"
+                }
+            ]
+        }
+    ]
+}
